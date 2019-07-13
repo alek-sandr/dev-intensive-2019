@@ -15,7 +15,7 @@ fun Activity.hideKeyboard() {
         view = View(this)
     }
     imm.hideSoftInputFromWindow(view.windowToken, 0)
-    view.clearFocus()
+//    view.clearFocus()
 }
 
 fun Activity.isKeyboardOpen() : Boolean {

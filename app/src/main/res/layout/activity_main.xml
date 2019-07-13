@@ -40,6 +40,7 @@
                 android:layout_marginLeft="@dimen/spacing_normal_16"
                 android:layout_marginRight="@dimen/spacing_normal_16"
                 android:imeOptions="actionDone"
+                android:imeActionLabel="DONE"
                 android:singleLine="true"/>
 
         <ImageView
