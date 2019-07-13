@@ -16,11 +16,11 @@ import ru.skillbranch.devintensive.extensions.isKeyboardOpen
 import ru.skillbranch.devintensive.models.Bender
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var benderImage: ImageView
-    private lateinit var textTxt: TextView
-    private lateinit var messageEt: EditText
-    private lateinit var sendBtn: ImageView
-    private lateinit var benderObj: Bender
+    lateinit var benderImage: ImageView
+    lateinit var textTxt: TextView
+    lateinit var messageEt: EditText
+    lateinit var sendBtn: ImageView
+    lateinit var benderObj: Bender
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
