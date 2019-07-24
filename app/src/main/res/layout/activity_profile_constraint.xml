@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:srcCompat="@drawable/profile_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintDimensionRatio="16:9"
+            android:scaleType="centerCrop"/>
+
+    <ru.skillbranch.devintensive.ui.custom.CircleImageView
+            android:id="@+id/ic_avatar"
+            android:layout_width="@dimen/avatar_round_size"
+            android:layout_height="@dimen/avatar_round_size"
+            android:src="@drawable/avatar_default"
+            app:layout_constraintEnd_toEndOf="@+id/iv_avatar"
+            app:layout_constraintStart_toStartOf="@+id/iv_avatar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintBottom_toTopOf="@+id/tv_nick_name"/>
+
+    <ImageButton
+            android:id="@+id/btn_switch_theme"
+            android:layout_width="@dimen/btn_round_size_40"
+            android:layout_height="@dimen/btn_round_size_40"
+            app:srcCompat="@drawable/ic_switch_day_night"
+            android:background="@drawable/btn_round_bg"
+            app:layout_constraintEnd_toStartOf="@+id/ic_avatar"
+            app:layout_constraintTop_toTopOf="@+id/ic_avatar"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_avatar"
+            android:layout_marginEnd="@dimen/spacing_huge_32"/>
+
+    <ImageButton
+            android:id="@+id/btn_edit"
+            android:layout_width="@dimen/btn_round_size_40"
+            android:layout_height="@dimen/btn_round_size_40"
+            android:background="@drawable/btn_round_bg"
+            app:srcCompat="@drawable/ic_edit_black_24dp"
+            app:layout_constraintStart_toEndOf="@+id/ic_avatar"
+            app:layout_constraintTop_toTopOf="@+id/ic_avatar"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_avatar"
+            android:layout_marginStart="@dimen/spacing_huge_32"/>
+
+    <TextView
+            style="@style/Profile.Header.Nickname"
+            android:id="@+id/tv_nick_name"
+            tools:text="John Doe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/ic_avatar"
+            app:layout_constraintEnd_toEndOf="@+id/ic_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/ic_avatar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toTopOf="@+id/tv_rank"/>
+
+    <TextView
+            style="@style/Profile.Header.Rank"
+            android:id="@+id/tv_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Junior Android Developer"
+            app:layout_constraintStart_toStartOf="@+id/tv_nick_name"
+            app:layout_constraintEnd_toEndOf="@+id/tv_nick_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nick_name"
+            app:layout_constraintBottom_toTopOf="@+id/iv_avatar"
+            android:layout_marginBottom="@dimen/spacing_huge_32"/>
+
+    <View
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="?attr/colorAccentedSurface"/>
+
+    <View
+            android:id="@+id/view2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            android:layout_marginTop="@dimen/spacing_normal_16"
+            android:layout_marginBottom="@dimen/spacing_normal_16"
+            android:background="@color/color_divider_light"/>
+    <TextView
+            style="@style/Profile.Metrics.Value"
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            android:drawableStart="@drawable/ic_sp_24"/>
+    <TextView
+            style="@style/Profile.Metrics.Label"
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_label_rating"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rating"
+            app:layout_constraintStart_toStartOf="@+id/tv_rating"
+            app:layout_constraintEnd_toEndOf="@+id/tv_rating"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toBottomOf="@+id/view"/>
+    <TextView
+            style="@style/Profile.Metrics.Value"
+            android:id="@+id/tv_respect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toEndOf="@+id/view2"
+            android:drawableStart="@drawable/ic_respect_24"/>
+    <TextView
+            style="@style/Profile.Metrics.Label"
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_label_respect"
+            app:layout_constraintTop_toBottomOf="@+id/tv_respect"
+            app:layout_constraintStart_toStartOf="@+id/tv_respect"
+            app:layout_constraintEnd_toEndOf="@+id/tv_respect"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toBottomOf="@+id/view"/>
+
+    <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="@dimen/btn_round_size_40"
+            android:layout_height="@dimen/btn_round_size_40"
+            app:srcCompat="@drawable/ic_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/spacing_normal_16"
+            android:layout_marginStart="@dimen/spacing_normal_16"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wr_first_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/spacing_normal_16"
+            android:layout_marginStart="@dimen/spacing_normal_16"
+            app:layout_constraintTop_toTopOf="@+id/imageView3">
+
+        <com.google.android.material.textfield.TextInputEditText
+                style="@style/Profile.EditText.Single"
+                android:id="@+id/et_first_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/profile_hint_first_name"
+                tools:text="John"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wr_last_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/wr_first_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wr_first_name"
+            android:layout_marginEnd="@dimen/spacing_normal_16">
+
+        <com.google.android.material.textfield.TextInputEditText
+                style="@style/Profile.EditText.Single"
+                android:id="@+id/et_last_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/profile_hint_last_name"
+                tools:text="Doe"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@+id/wr_last_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="?attr/colorDivider"
+            android:layout_marginStart="@dimen/space_maximum_72"
+            android:layout_marginTop="5dp"/>
+
+    <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="@dimen/btn_round_size_40"
+            android:layout_height="@dimen/btn_round_size_40"
+            app:srcCompat="@drawable/ic_about"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3"
+            android:layout_marginStart="@dimen/spacing_normal_16"
+            android:layout_marginTop="@dimen/spacing_normal_16"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wr_about"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/spacing_normal_16"
+            android:layout_marginStart="@dimen/spacing_normal_16"
+            app:counterMaxLength="128">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_about"
+                style="@style/Profile.EditText.MultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/profile_hint_about"
+                tools:text="Something about me"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionNext"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@+id/wr_about"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/space_maximum_72"
+            android:layout_marginTop="5dp"
+            android:background="?attr/colorDivider"/>
+
+    <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="@dimen/btn_round_size_40"
+            android:layout_height="@dimen/btn_round_size_40"
+            app:srcCompat="@drawable/ic_repo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view4"
+            android:layout_marginStart="@dimen/spacing_normal_16"
+            android:layout_marginTop="@dimen/spacing_normal_16"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wr_repository"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            app:layout_constraintEnd_toStartOf="@+id/ic_eye"
+            android:layout_marginStart="@dimen/spacing_normal_16"
+            android:layout_marginEnd="@dimen/spacing_normal_16">
+
+        <com.google.android.material.textfield.TextInputEditText
+                style="@style/Profile.EditText.Single"
+                android:id="@+id/et_repository"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/profile_hint_repository"
+                tools:text="https://github.com/me"
+                android:inputType="textUri"
+                android:imeOptions="actionDone"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+            android:id="@+id/ic_eye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_normal_16"
+            app:srcCompat="@drawable/ic_eye_24dp"
+            app:layout_constraintTop_toTopOf="@+id/wr_repository"
+            app:layout_constraintBottom_toBottomOf="@+id/wr_repository"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
