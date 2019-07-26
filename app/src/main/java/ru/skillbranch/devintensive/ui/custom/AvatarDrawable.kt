@@ -6,6 +6,7 @@ import android.graphics.Paint.Align
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
 import androidx.core.content.ContextCompat
+import ru.skillbranch.devintensive.R
 
 
 class AvatarDrawable(context: Context, private val text: String) : Drawable() {
@@ -20,17 +21,17 @@ class AvatarDrawable(context: Context, private val text: String) : Drawable() {
 
     init {
         val a = TypedValue()
-        context.theme.resolveAttribute(android.R.attr.colorAccent, a, true)
+        context.theme.resolveAttribute(R.attr.colorAccent, a, true)
         if (a.type >= TypedValue.TYPE_FIRST_COLOR_INT && a.type <= TypedValue.TYPE_LAST_COLOR_INT) {
             bgPaint.color = a.data
         } else {
-            bgPaint.color = ContextCompat.getColor(context, ru.skillbranch.devintensive.R.color.color_accent)
+            bgPaint.color = ContextCompat.getColor(context, R.color.color_accent)
         }
 
         bgPaint.style = Paint.Style.FILL
         textPaint.color = Color.WHITE
         textPaint.textAlign = Align.CENTER
-        textPaint.typeface = Typeface.defaultFromStyle(Typeface.BOLD);
+        textPaint.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
         val textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TEXTSIZE, context.resources.displayMetrics)
         textPaint.textSize = textSize
 //        mIntrinsicWidth = (textPaint.measureText(text, 0, text.length) + 0.5).toInt()

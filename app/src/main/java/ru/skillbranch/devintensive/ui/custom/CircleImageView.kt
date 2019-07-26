@@ -8,18 +8,19 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.widget.ImageView
 import androidx.annotation.ColorRes
 import androidx.annotation.Dimension
 import androidx.annotation.DrawableRes
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import ru.skillbranch.devintensive.R
 import kotlin.math.min
 
 class CircleImageView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : AppCompatImageView(context, attrs) {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0)
+    : ImageView(context, attrs, defStyleAttr)  {
 
     companion object {
         private const val DEFAULT_BORDER_COLOR = Color.WHITE
