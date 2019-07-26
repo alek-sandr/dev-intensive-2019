@@ -5,9 +5,7 @@ import android.graphics.*
 import android.graphics.Paint.Align
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
-import androidx.core.content.ContextCompat
 import ru.skillbranch.devintensive.R
-
 
 class AvatarDrawable(context: Context, private val text: String) : Drawable() {
     companion object {
@@ -20,13 +18,13 @@ class AvatarDrawable(context: Context, private val text: String) : Drawable() {
     private var mIntrinsicHeight: Int
 
     init {
-        val a = TypedValue()
-        context.theme.resolveAttribute(R.attr.colorAccent, a, true)
-        if (a.type >= TypedValue.TYPE_FIRST_COLOR_INT && a.type <= TypedValue.TYPE_LAST_COLOR_INT) {
-            bgPaint.color = a.data
-        } else {
-            bgPaint.color = ContextCompat.getColor(context, R.color.color_accent)
-        }
+        val value = TypedValue()
+        context.theme.resolveAttribute(R.attr.colorAccent, value, true)
+//        if (value.type >= TypedValue.TYPE_FIRST_COLOR_INT && value.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+        bgPaint.color = value.data
+//        } else {
+//            bgPaint.color = ContextCompat.getColor(context, R.color.color_accent)
+//        }
 
         bgPaint.style = Paint.Style.FILL
         textPaint.color = Color.WHITE
