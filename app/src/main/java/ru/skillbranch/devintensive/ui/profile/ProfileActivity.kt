@@ -6,7 +6,7 @@ import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
+import android.util.TypedValue
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -101,7 +101,10 @@ class ProfileActivity : AppCompatActivity() {
 
         with(btn_edit) {
             val filter: ColorFilter? = if (isEdit) {
-                PorterDuffColorFilter(ContextCompat.getColor(context, R.color.color_accent), PorterDuff.Mode.SRC_IN)
+                val value = TypedValue()
+                context.theme.resolveAttribute(R.attr.colorAccent, value, true)
+                val color = value.data
+                PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
             } else {
                 null
             }
@@ -123,7 +126,6 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun updateTheme(mode: Int) {
         delegate.setLocalNightMode(mode)
-        Log.d("myLogs", ContextCompat.getColor(this, R.color.color_accent).toString())
         updateAvatar()
     }
 
@@ -143,9 +145,9 @@ class ProfileActivity : AppCompatActivity() {
             val initials = (first ?: "").toString() + (second ?: "").toString()
             if (initials.isNotEmpty()) {
                 val avatarDrawable = AvatarDrawable(this, initials.toUpperCase())
-                ic_avatar.setImageDrawable(avatarDrawable)
+                iv_avatar.setImageDrawable(avatarDrawable)
             } else {
-                ic_avatar.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.avatar_default))
+                iv_avatar.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.avatar_default))
             }
         }
     }
@@ -173,7 +175,7 @@ class ProfileActivity : AppCompatActivity() {
         if (!text.contains("github.com/")) {
             return false
         }
-        val parts = text.split("github\\.com\\/".toRegex())
+        val parts = text.split("github\\.com/".toRegex())
         if (parts.first().isEmpty() ||
             parts.first().matches("""(www.|http://|https://|http://www.|https://www.)""".toRegex())) {
             if (parts.last().matches("enterprise|features|topics|collections|trending|events|marketplace|pricing|nonprofit|customer-stories|security|login|join".toRegex())) {

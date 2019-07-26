@@ -6,7 +6,7 @@
                                                    android:layout_height="match_parent">
 
     <ImageView
-            android:id="@+id/iv_avatar"
+            android:id="@+id/iv_avatar_bg"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:srcCompat="@drawable/profile_bg"
@@ -17,14 +17,14 @@
             android:scaleType="centerCrop"/>
 
     <ru.skillbranch.devintensive.ui.custom.CircleImageView
-            android:id="@+id/ic_avatar"
+            android:id="@+id/iv_avatar"
             android:layout_width="@dimen/avatar_round_size"
             android:layout_height="@dimen/avatar_round_size"
             android:src="@drawable/avatar_default"
-            app:layout_constraintEnd_toEndOf="@+id/iv_avatar"
-            app:layout_constraintStart_toStartOf="@+id/iv_avatar"
+            app:layout_constraintEnd_toEndOf="@+id/iv_avatar_bg"
+            app:layout_constraintStart_toStartOf="@+id/iv_avatar_bg"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar_bg"
             app:layout_constraintBottom_toTopOf="@+id/tv_nick_name"/>
 
     <ImageButton
@@ -33,9 +33,9 @@
             android:layout_height="@dimen/btn_round_size_40"
             app:srcCompat="@drawable/ic_switch_day_night"
             android:background="@drawable/btn_round_bg"
-            app:layout_constraintEnd_toStartOf="@+id/ic_avatar"
-            app:layout_constraintTop_toTopOf="@+id/ic_avatar"
-            app:layout_constraintBottom_toBottomOf="@+id/ic_avatar"
+            app:layout_constraintEnd_toStartOf="@+id/iv_avatar"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
             android:layout_marginEnd="@dimen/spacing_huge_32"/>
 
     <ImageButton
@@ -44,9 +44,9 @@
             android:layout_height="@dimen/btn_round_size_40"
             android:background="@drawable/btn_round_bg"
             app:srcCompat="@drawable/ic_edit_black_24dp"
-            app:layout_constraintStart_toEndOf="@+id/ic_avatar"
-            app:layout_constraintTop_toTopOf="@+id/ic_avatar"
-            app:layout_constraintBottom_toBottomOf="@+id/ic_avatar"
+            app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
             android:layout_marginStart="@dimen/spacing_huge_32"/>
 
     <TextView
@@ -55,9 +55,9 @@
             tools:text="John Doe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/ic_avatar"
-            app:layout_constraintEnd_toEndOf="@+id/ic_avatar"
-            app:layout_constraintTop_toBottomOf="@+id/ic_avatar"
+            app:layout_constraintStart_toStartOf="@+id/iv_avatar"
+            app:layout_constraintEnd_toEndOf="@+id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintBottom_toTopOf="@+id/tv_rank"/>
 
@@ -70,14 +70,14 @@
             app:layout_constraintStart_toStartOf="@+id/tv_nick_name"
             app:layout_constraintEnd_toEndOf="@+id/tv_nick_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_nick_name"
-            app:layout_constraintBottom_toTopOf="@+id/iv_avatar"
+            app:layout_constraintBottom_toTopOf="@+id/iv_avatar_bg"
             android:layout_marginBottom="@dimen/spacing_huge_32"/>
 
     <View
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:id="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:background="?attr/colorAccentedSurface"/>
@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
-            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar_bg"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintEnd_toStartOf="@+id/view2"
@@ -122,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
-            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar_bg"
             app:layout_constraintBottom_toTopOf="@+id/textView6"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintEnd_toEndOf="@+id/view"
