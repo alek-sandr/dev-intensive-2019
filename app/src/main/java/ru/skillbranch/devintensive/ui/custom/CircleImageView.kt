@@ -110,9 +110,9 @@ class CircleImageView @JvmOverloads constructor(
         return borderWidthDp
     }
 
-    fun setBorderWidth(@Dimension width: Int) {
-        borderWidthDp = width
-        mBorderPaint.strokeWidth = dpToFloat(width)
+    fun setBorderWidth(dp: Int) {
+        borderWidthDp = dp
+        mBorderPaint.strokeWidth = dpToFloat(dp)
         invalidate()
     }
 

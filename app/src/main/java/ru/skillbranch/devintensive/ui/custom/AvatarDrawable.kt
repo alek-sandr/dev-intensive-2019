@@ -31,7 +31,7 @@ class AvatarDrawable(context: Context, private val text: String) : Drawable() {
         textPaint.color = Color.WHITE
         textPaint.textAlign = Align.CENTER
         textPaint.typeface = Typeface.defaultFromStyle(Typeface.BOLD);
-        val textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, DEFAULT_TEXTSIZE, context.resources.displayMetrics)
+        val textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TEXTSIZE, context.resources.displayMetrics)
         textPaint.textSize = textSize
 //        mIntrinsicWidth = (textPaint.measureText(text, 0, text.length) + 0.5).toInt()
 //        mIntrinsicHeight = textPaint.getFontMetricsInt(null)
