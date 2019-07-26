@@ -1,8 +1,8 @@
 package ru.skillbranch.devintensive.ui.profile
 
-import android.graphics.ColorFilter
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
+import android.graphics.*
+import android.graphics.Paint.ANTI_ALIAS_FLAG
+import android.graphics.Paint.Align
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,9 +17,9 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_profile_constraint.*
 import ru.skillbranch.devintensive.R
 import ru.skillbranch.devintensive.models.Profile
-import ru.skillbranch.devintensive.ui.custom.AvatarDrawable
 import ru.skillbranch.devintensive.utils.Utils
 import ru.skillbranch.devintensive.viewmodels.ProfileViewModel
+
 
 class ProfileActivity : AppCompatActivity() {
     companion object {
@@ -144,8 +144,9 @@ class ProfileActivity : AppCompatActivity() {
             val second = Utils.transliteration(it.lastName).trim().firstOrNull()
             val initials = (first ?: "").toString() + (second ?: "").toString()
             if (initials.isNotEmpty()) {
-                val avatarDrawable = AvatarDrawable(this, initials.toUpperCase())
-                iv_avatar.setImageDrawable(avatarDrawable)
+//                val avatarDrawable = AvatarDrawable(this, initials.toUpperCase())
+                val avatarDrawable = createAvatar(initials.toUpperCase())
+                iv_avatar.setImageBitmap(avatarDrawable)
             } else {
                 iv_avatar.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.avatar_default))
             }
@@ -185,5 +186,30 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
         return false
+    }
+
+    private fun createAvatar(text: String): Bitmap {
+        val bgPaint = Paint()
+        val value = TypedValue()
+        theme.resolveAttribute(R.attr.colorAccent, value, true)
+        bgPaint.color = value.data
+        bgPaint.style = Paint.Style.FILL
+
+        val textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48f, resources.displayMetrics)
+
+        val textPaint = Paint(ANTI_ALIAS_FLAG)
+        textPaint.textSize = textSize
+        textPaint.color = Color.WHITE
+        textPaint.textAlign = Align.CENTER
+        textPaint.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+
+        val width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 112f, resources.displayMetrics)
+        val height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 112f, resources.displayMetrics)
+        val image = Bitmap.createBitmap(width.toInt(), height.toInt(), Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(image)
+        canvas.drawRect(0f, 0f, width, height, bgPaint)
+        canvas.drawText(text, 0, text.length, width / 2f,
+            height / 2f - ((textPaint.descent() + textPaint.ascent()) / 2f), textPaint)
+        return image
     }
 }
