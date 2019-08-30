@@ -1,6 +1,11 @@
 <resources>
 
-
+    <style name="ActivityTransitions" parent="android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/bottom_up</item>
+        <item name="android:activityOpenExitAnimation">@anim/idle</item>
+        <item name="android:activityCloseEnterAnimation">@anim/idle</item>
+        <item name="android:activityCloseExitAnimation">@anim/bottom_down</item>
+    </style>
 
     <style name="Profile">
 
@@ -56,6 +61,28 @@
         <item name="android:paddingLeft">@dimen/spacing_normal_16</item>
         <item name="android:paddingRight">@dimen/spacing_normal_16</item>
         <item name="android:minHeight">72dp</item>
+    </style>
+
+    <style name="ListItem">
+        <item name="android:background">@color/color_foreground</item>
+    </style>
+    <style name="ItemTitle">
+        <item name="android:textColor">@color/color_title</item>
+    </style>
+    <style name="ItemUsername">
+        <item name="android:textColor">@color/color_title</item>
+    </style>
+    <style name="ItemText">
+        <item name="android:textColor">@color/color_text</item>
+    </style>
+    <style name="MessagesCounter">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@drawable/bg_counter</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:minWidth">@dimen/counter_size</item>
     </style>
 
 </resources>

@@ -7,4 +7,6 @@
     <string name="profile_hint_last_name">Фамилия</string>
     <string name="profile_hint_first_name">Имя</string>
     <string name="repository_error">Невалидный адрес репозитория</string>
+    <string name="menu_search_title">Поиск</string>
+    <string name="chat_archive">Архив чатов</string>
 </resources>

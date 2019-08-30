@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_counter_indicator">@color/color_gray_dark</color>
+    <color name="color_active_indicator">@color/color_accent_night</color>
+    <color name="color_background">#121212</color>
+    <color name="color_foreground">#1D1D1D</color>
+    <color name="color_swipe_background">@color/color_accent_night</color>
+    <color name="color_snackbar_text">#121212</color>
+    <color name="color_title">@android:color/white</color>
+    <color name="color_text">@color/color_gray</color>
+    <color name="color_snackbar_foreground">@android:color/white</color>
+    <color name="color_snackbar_action">@color/color_accent_night</color>
+    <color name="color_chip_close">@color/color_gray</color>
+    <color name="color_chip_bg">@color/color_foreground</color>
+    <color name="color_check">@color/color_accent_night</color>
+</resources>
