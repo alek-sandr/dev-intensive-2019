@@ -81,6 +81,7 @@ class ArchiveActivity : AppCompatActivity() {
         touchCallback.icon = ContextCompat.getDrawable(this, R.drawable.ic_unarchive_24dp)
 
         with(rv_archive_list) {
+            setHasFixedSize(true)
             adapter = archivesAdapter
             layoutManager = LinearLayoutManager(this@ArchiveActivity)
             addItemDecoration(divider)

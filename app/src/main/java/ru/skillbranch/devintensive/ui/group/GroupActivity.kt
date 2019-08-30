@@ -78,6 +78,7 @@ class GroupActivity : AppCompatActivity() {
         }
         val divider = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         with(rv_user_list) {
+            setHasFixedSize(true)
             adapter = usersAdapter
             layoutManager = LinearLayoutManager(this@GroupActivity)
             addItemDecoration(divider)

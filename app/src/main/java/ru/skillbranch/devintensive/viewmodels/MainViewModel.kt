@@ -13,7 +13,6 @@ import ru.skillbranch.devintensive.repositories.ChatRepository
 class MainViewModel : ViewModel() {
     private val chatRepository = ChatRepository
     private val query = mutableLiveData("")
-    private val archive = mutableLiveData<ChatItem>(null)
     private val chats = Transformations.map(chatRepository.loadChats()) { chats ->
         return@map chats
             .filter { !it.isArchived }
@@ -26,27 +25,19 @@ class MainViewModel : ViewModel() {
 
         val filter = {
             val queryString = query.value ?: ""
-            val allChats = if (archive.value == null) {
+            val archived: List<Chat> = chatRepository.loadChats().value!!
+                .filter { it.isArchived }
+            val allChats = if (archived.isEmpty()) {
                 chats.value!!
             } else {
                 val copy = chats.value!!.toMutableList()
-                copy.add(0, archive.value!!)
+                copy.add(0, getArchiveItem(archived))
                 copy
             }
             result.value = if (queryString.isEmpty()) {
                 allChats
             } else {
                 allChats.filter { it.title.contains(queryString, true) }
-            }
-        }
-
-        result.addSource(archive) {
-            if (archive.value != null) {
-                val allChats = chats.value!!.toMutableList()
-                allChats.add(0, archive.value!!)
-                result.value = allChats
-            } else {
-                result.value = chats.value
             }
         }
         result.addSource(chats) { filter() }
@@ -58,27 +49,15 @@ class MainViewModel : ViewModel() {
         val chat = chatRepository.find(chatId)
         chat ?: return
         chatRepository.update(chat.copy(isArchived = true))
-        val archived: List<Chat> = chatRepository.loadChats().value!!
-            .filter { it.isArchived }
-        updateArchiveItem(archived)
     }
 
     fun restoreFromArchive(chatId: String) {
         val chat = chatRepository.find(chatId)
         chat ?: return
         chatRepository.update(chat.copy(isArchived = false))
-
-        val archived = chatRepository.loadChats().value!!
-            .filter { it.isArchived }
-
-        if (archived.isEmpty()) { // remove archives item
-            archive.value = null
-        } else { // update existing
-            updateArchiveItem(archived)
-        }
     }
 
-    private fun updateArchiveItem(archived: List<Chat>) {
+    private fun getArchiveItem(archived: List<Chat>): ChatItem {
         val totalUnread: Int = archived
             .map { it.unreadableMessageCount() }
             .reduce { acc, i -> acc + i }
@@ -87,7 +66,7 @@ class MainViewModel : ViewModel() {
             .maxBy { it.messages.last().date }
 
         val chatItem: ChatItem? = chatWithLastMessage?.toChatItem()
-        archive.value = ChatItem(
+        return ChatItem(
             "0",
             null,
             "",

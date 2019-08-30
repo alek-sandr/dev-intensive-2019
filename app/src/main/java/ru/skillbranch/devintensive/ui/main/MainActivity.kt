@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         touchCallback.icon = ContextCompat.getDrawable(this, R.drawable.ic_archive_24dp)
 
         with(rv_chat_list) {
+            setHasFixedSize(true)
             adapter = chatAdapter
             layoutManager = LinearLayoutManager(this@MainActivity)
             addItemDecoration(divider)
