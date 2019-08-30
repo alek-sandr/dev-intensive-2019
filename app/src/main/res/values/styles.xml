@@ -76,7 +76,7 @@
         <item name="android:textColor">@color/color_text</item>
     </style>
     <style name="MessagesCounter">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/color_counter_text</item>
         <item name="android:textSize">10sp</item>
         <item name="android:background">@drawable/bg_counter</item>
         <item name="android:gravity">center</item>

@@ -15,6 +15,7 @@
     <color name="color_divider_light">#1FFFFFFF</color>
 
     <color name="color_counter_indicator">#581F99</color>
+    <color name="color_counter_text">@android:color/white</color>
     <color name="color_active_indicator">#4FD149</color>
     <color name="color_foreground">@android:color/white</color>
     <color name="color_background">@android:color/white</color>
