@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -155,11 +156,11 @@ class ChatAdapter(private val listener: (ChatItem) -> Unit) :
         }
 
         override fun onItemSelected() {
-//            itemView.setBackgroundColor(Color.LTGRAY)
+            itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.color_item_selected))
         }
 
         override fun onItemCleared() {
-//            itemView.setBackgroundColor(Color.WHITE)
+            itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.color_foreground))
         }
     }
 
@@ -189,11 +190,11 @@ class ChatAdapter(private val listener: (ChatItem) -> Unit) :
         }
 
         override fun onItemSelected() {
-//            itemView.setBackgroundColor(Color.LTGRAY)
+            itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.color_item_selected))
         }
 
         override fun onItemCleared() {
-//            itemView.setBackgroundColor(Color.WHITE)
+            itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.color_foreground))
         }
     }
 }
