@@ -164,7 +164,7 @@ class ChatAdapter(private val listener: (ChatItem) -> Unit) :
             tv_title_group.text = item.title
             tv_message_group.text = item.shortDescription
             with(tv_message_author) {
-                visibility = if (item.messageCount > 0) View.VISIBLE else View.GONE
+                visibility = if (item.author != null) View.VISIBLE else View.GONE
                 text = context.resources.getString(R.string.at_name, item.author)
             }
             itemView.setOnClickListener {
