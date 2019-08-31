@@ -1,7 +1,6 @@
 package ru.skillbranch.devintensive.ui.adapters
 
 import android.content.Intent
-import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,6 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_chat_archive.*
 import kotlinx.android.synthetic.main.item_chat_group.*
 import kotlinx.android.synthetic.main.item_chat_single.*
-import kotlinx.android.synthetic.main.item_chat_single.sv_indicator
 import ru.skillbranch.devintensive.R
 import ru.skillbranch.devintensive.models.data.ChatItem
 import ru.skillbranch.devintensive.models.data.ChatType
@@ -38,26 +36,12 @@ class ChatAdapter(private val listener: (ChatItem) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        Log.d("ChatAdapter", "onCreateViewHolder")
         return when (viewType) {
-            ARCHIVE_TYPE -> ArchiveViewHolder(
-                inflater.inflate(
-                    R.layout.item_chat_archive,
-                    parent,
-                    false
-                )
-            )
-            SINGLE_TYPE -> SingleViewHolder(
-                inflater.inflate(
-                    R.layout.item_chat_single,
-                    parent,
-                    false
-                )
-            )
+            ARCHIVE_TYPE -> ArchiveViewHolder(inflater.inflate(R.layout.item_chat_archive, parent, false))
+            SINGLE_TYPE -> SingleViewHolder(inflater.inflate(R.layout.item_chat_single, parent, false))
             GROUP_TYPE -> GroupViewHolder(inflater.inflate(R.layout.item_chat_group, parent, false))
             else -> SingleViewHolder(inflater.inflate(R.layout.item_chat_single, parent, false))
         }
-
     }
 
     override fun getItemCount() = items.size
@@ -103,7 +87,6 @@ class ChatAdapter(private val listener: (ChatItem) -> Unit) :
     class ArchiveViewHolder(convertView: View) : ChatItemViewHolder(convertView) {
 
         override fun bind(item: ChatItem, listener: (ChatItem) -> Unit) {
-            println(item)
             with(tv_date_archive) {
                 visibility = if (item.lastMessageDate != null) View.VISIBLE else View.GONE
                 text = item.lastMessageDate
@@ -115,7 +98,7 @@ class ChatAdapter(private val listener: (ChatItem) -> Unit) :
             tv_message_archive.text = item.shortDescription
             with(tv_message_author_archive) {
                 visibility = if (!item.shortDescription.isNullOrEmpty()) View.VISIBLE else View.GONE
-                text = "@${item.author}"
+                text = context.resources.getString(R.string.at_name, item.author)
             }
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, ArchiveActivity::class.java)
@@ -182,7 +165,7 @@ class ChatAdapter(private val listener: (ChatItem) -> Unit) :
             tv_message_group.text = item.shortDescription
             with(tv_message_author) {
                 visibility = if (item.messageCount > 0) View.VISIBLE else View.GONE
-                text = "@${item.author}"
+                text = context.resources.getString(R.string.at_name, item.author)
             }
             itemView.setOnClickListener {
                 listener.invoke(item)

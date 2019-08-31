@@ -9,4 +9,5 @@
     <string name="repository_error">Невалидный адрес репозитория</string>
     <string name="menu_search_title">Поиск</string>
     <string name="chat_archive">Архив чатов</string>
+    <string name="at_name">\@%1$s</string>
 </resources>

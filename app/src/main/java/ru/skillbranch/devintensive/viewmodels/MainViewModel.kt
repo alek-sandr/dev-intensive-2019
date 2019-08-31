@@ -37,7 +37,7 @@ class MainViewModel : ViewModel() {
             result.value = if (queryString.isEmpty()) {
                 allChats
             } else {
-                allChats.filter { it.title.contains(queryString, true) }
+                allChats.filter { it.chatType != ChatType.ARCHIVE && it.title.contains(queryString, true) }
             }
         }
         result.addSource(chats) { filter() }

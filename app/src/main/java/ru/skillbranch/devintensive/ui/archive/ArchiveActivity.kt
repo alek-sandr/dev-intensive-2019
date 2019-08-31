@@ -68,7 +68,9 @@ class ArchiveActivity : AppCompatActivity() {
 
     private fun initViews() {
         archivesAdapter = ChatAdapter {
-            // item click listener
+            Snackbar.make(rv_chat_list, "Click on ${it.title}", Snackbar.LENGTH_LONG)
+                .applyAppStyle()
+                .show()
         }
         val divider = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         val touchCallback = ChatItemTouchHelperCallback(archivesAdapter) {item ->
