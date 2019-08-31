@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_counter_indicator">@color/color_gray_dark</color>
-    <color name="color_counter_text">@color/color_gray</color>
+    <color name="color_counter_text">@android:color/white</color>
     <color name="color_active_indicator">@color/color_accent_night</color>
     <color name="color_background">#121212</color>
     <color name="color_foreground">#1D1D1D</color>
