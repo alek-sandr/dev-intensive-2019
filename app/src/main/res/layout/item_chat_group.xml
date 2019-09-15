@@ -48,7 +48,8 @@
             android:layout_toRightOf="@id/tv_message_author"
             style="@style/ItemText"
             android:textSize="14sp"
-            tools:text="message content" />
+            tools:text="message content"
+            android:maxLines="1"/>
 
     <TextView
             android:id="@+id/tv_date_group"

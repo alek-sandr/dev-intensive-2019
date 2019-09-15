@@ -44,7 +44,8 @@
             android:layout_toRightOf="@id/iv_avatar_single"
             style="@style/ItemText"
             android:textSize="14sp"
-            tools:text="message content" />
+            tools:text="message content"
+            android:maxLines="1"/>
 
     <TextView
             android:id="@+id/tv_date_single"
